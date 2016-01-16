@@ -1,0 +1,187 @@
+fileFormatVersion: 2
+guid: 0b960f4b2f523f440bea120a74496752
+timeCreated: 1452960040
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Armature
+    100004: Armature_001
+    100006: Bone
+    100008: Bone_0
+    100010: Bone_001
+    100012: Bone_002
+    100014: Bone_003
+    100016: Bone_004
+    100018: Bone_005
+    100020: Bone_006
+    100022: Bone_007
+    100024: Bone_008
+    100026: Bone_009
+    100028: Bone_10
+    100030: Bone_2
+    100032: Bone_3
+    100034: Bone_4
+    100036: Bone_5
+    100038: Bone_6
+    100040: Bone_7
+    100042: Bone_8
+    100044: Bone_9
+    100046: Circle
+    100048: Circle_001
+    100050: Cube
+    100052: Cube_001
+    100054: Cube_002
+    100056: Cube_003
+    100058: Plane
+    100060: Plane_001
+    100062: Plane_002
+    100064: Plane_003
+    100066: Princessa
+    100068: PrincessBod
+    100070: PrincessCloak
+    100072: PrincessFace
+    400000: //RootNode
+    400002: Armature
+    400004: Armature_001
+    400006: Bone
+    400008: Bone_0
+    400010: Bone_001
+    400012: Bone_002
+    400014: Bone_003
+    400016: Bone_004
+    400018: Bone_005
+    400020: Bone_006
+    400022: Bone_007
+    400024: Bone_008
+    400026: Bone_009
+    400028: Bone_10
+    400030: Bone_2
+    400032: Bone_3
+    400034: Bone_4
+    400036: Bone_5
+    400038: Bone_6
+    400040: Bone_7
+    400042: Bone_8
+    400044: Bone_9
+    400046: Circle
+    400048: Circle_001
+    400050: Cube
+    400052: Cube_001
+    400054: Cube_002
+    400056: Cube_003
+    400058: Plane
+    400060: Plane_001
+    400062: Plane_002
+    400064: Plane_003
+    400066: Princessa
+    400068: PrincessBod
+    400070: PrincessCloak
+    400072: PrincessFace
+    2300000: Circle
+    2300002: Circle_001
+    2300004: Cube
+    2300006: Cube_001
+    2300008: Cube_002
+    2300010: Cube_003
+    2300012: Plane
+    2300014: Plane_001
+    2300016: Plane_002
+    2300018: Plane_003
+    2300020: Princessa
+    2300022: PrincessBod
+    2300024: PrincessCloak
+    2300026: PrincessFace
+    3300000: Circle
+    3300002: Circle_001
+    3300004: Cube
+    3300006: Cube_001
+    3300008: Cube_002
+    3300010: Cube_003
+    3300012: Plane
+    3300014: Plane_001
+    3300016: Plane_002
+    3300018: Plane_003
+    3300020: Princessa
+    3300022: PrincessBod
+    3300024: PrincessCloak
+    3300026: PrincessFace
+    4300000: Circle
+    4300002: Cube
+    4300004: Plane
+    4300006: Cube_001
+    4300008: Plane_001
+    4300010: Circle_001
+    4300012: Cube_002
+    4300014: Cube_003
+    4300016: Plane_002
+    4300018: Plane_003
+    4300020: PrincessBod
+    4300022: PrincessFace
+    4300024: Princessa
+    4300026: PrincessCloak
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
