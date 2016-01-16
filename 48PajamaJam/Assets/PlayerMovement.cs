@@ -128,9 +128,9 @@ public class PlayerMovement : MonoBehaviour {
 
     public void FixedUpdate()
     {
+        boxCollider.center = new Vector3(0, .5f * GameManager.instance.flip, 0);
         if (GameManager.instance.IsFlipping())
         {
-            boxCollider.center = new Vector3(0,.5f * GameManager.instance.flip,0);
             if (GameManager.instance.flipState == FlipState.goingDown)
                 transform.position += Vector3.down * flipVelocity * Time.deltaTime;
             else
@@ -142,6 +142,8 @@ public class PlayerMovement : MonoBehaviour {
             if (this.transform.position.y < -15 || this.transform.position.y > 1015)
             {
                 this.transform.position = respawnPoint;
+                GameManager.instance.ResetFlip();
+                velocity = Vector3.zero;
             }
         }
     }
