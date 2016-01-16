@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 8bd4bc1d7addb7c4d8327b0c80c238b9
-timeCreated: 1452970135
+guid: 2d1561a36a3d84547a31331c29f6a7a4
+timeCreated: 1452980711
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -17,8 +17,9 @@ ModelImporter:
     3300000: //RootNode
     3300002: Dark
     3300004: Light
-    4300000: Light
-    4300002: Dark
+    4300000: Cube
+    4300002: Light
+    4300004: Dark
     7400000: Default Take
     9500000: //RootNode
   materials:
