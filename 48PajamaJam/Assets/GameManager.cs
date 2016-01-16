@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour {
     public GameObject lightOverworld;
 
     public float curTime = -1;
-    public float LoadLevelTime = 3;
+    public float LoadLevelTime = 1;
 
     public static GameManager instance;
 
