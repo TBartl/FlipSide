@@ -84,8 +84,6 @@ public class PlayerMovement : MonoBehaviour {
         if (isMoving)
             playerModel.rotation = Quaternion.Euler(0,90+ Mathf.Rad2Deg * Mathf.Atan2(-velocity.z, velocity.x), 0);
 
-        Debug.Log(isMoving);
-
         
     }
 
