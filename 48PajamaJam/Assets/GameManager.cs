@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour {
     public float flipSpeed;
     public GameObject lightOverworld;
 
+    public float curTime = -1;
+    public float LoadLevelTime = 3;
+
     public static GameManager instance;
 
     void Awake()
@@ -49,6 +52,11 @@ public class GameManager : MonoBehaviour {
         if (flip < 0)
             lightOverworld.SetActive(false);
         //flip = flipPercent;
+
+        if (curTime >= 0)
+            curTime += Time.deltaTime;
+        if (curTime >= LoadLevelTime)
+            NextLevel();
 
 
     }
@@ -90,5 +98,12 @@ public class GameManager : MonoBehaviour {
         GameObject box = GameObject.Find("RedBox");
         //box.SetActive(false);
         box.SendMessage("Hit");
+    }
+
+    public void NextLevel()
+    {
+        int i = Application.loadedLevel + 1;
+        Application.LoadLevel(i);
+        //end = false;
     }
 }

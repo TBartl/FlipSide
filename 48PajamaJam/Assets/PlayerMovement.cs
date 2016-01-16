@@ -24,6 +24,8 @@ public class PlayerMovement : MonoBehaviour {
 
     BoxCollider boxCollider;
 
+   
+
 
     Vector3 respawnPoint;
 
@@ -83,6 +85,8 @@ public class PlayerMovement : MonoBehaviour {
             playerModel.rotation = Quaternion.Euler(0,90+ Mathf.Rad2Deg * Mathf.Atan2(-velocity.z, velocity.x), 0);
 
         Debug.Log(isMoving);
+
+        
     }
 
     void HandleGroundMovement()
@@ -180,14 +184,9 @@ public class PlayerMovement : MonoBehaviour {
         }
         if (coll.gameObject.name == "Portal")
         {
-            NextLevel();
+            GameManager.instance.curTime = 0;
         }
     }
 
-    public void NextLevel()
-    {
-        int i = Application.loadedLevel + 1;
-        Application.LoadLevel(i);
-        //end = false;
-    }
+    
 }

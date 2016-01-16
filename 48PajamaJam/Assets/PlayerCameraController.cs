@@ -117,7 +117,9 @@ public class PlayerCameraController : MonoBehaviour {
         //flipper.localRotation = Quaternion.Euler(new Vector3(0, -(1 - GameManager.instance.Flip0Dark1Light()) * 180,0));
         //mainCamera.transform.localRotation = Quaternion.EulerAngles(0, 0, -(1-GameManager.instance.Flip0Dark1Light()) * 180);
         mainCamera.fieldOfView = Mathf.Abs(GameManager.instance.flip) * 60;
-	}
+        if (GameManager.instance.curTime >= 0)
+            mainCamera.fieldOfView = ((-175 - 60) / GameManager.instance.LoadLevelTime) * GameManager.instance.curTime + 60;
+    }
 
 	// Move the camera to the correct position.
 	void MoveCamera()
