@@ -3,6 +3,10 @@ using System.Collections;
 
 public class Key : MonoBehaviour {
 
+    public GameObject turnOn;
+    public GameObject turnOff;
+    public Vector3 rotationSpeed;
+
     bool hit = false;
     public float targetScale = .001f;
     public float shrinkSpeed = 5f;
@@ -10,17 +14,20 @@ public class Key : MonoBehaviour {
     void Start () {
 	
 	}
-	
-	// Update is called once per frame
-	void Update () {
 
-        if(hit)
-            transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(targetScale, targetScale, targetScale), Time.deltaTime* shrinkSpeed);
-}
+    // Update is called once per frame
+    void Update()
+    {
+        transform.localRotation *=  Quaternion.Euler(Time.deltaTime * rotationSpeed);
 
-    public void Hit()
+        if (hit)
+            transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(targetScale, targetScale, targetScale), Time.deltaTime * shrinkSpeed);
+    }
+    public void OnTriggerEnter(Collider c)
     {
         hit = true;
-        GameManager.instance.Key();
+        Destroy(this, 5);
+        turnOff.SetActive(false);
+        turnOn.SetActive(true);
     }
 }
