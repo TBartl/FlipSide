@@ -84,4 +84,11 @@ public class GameManager : MonoBehaviour {
         flipPercent = 1;
         flip = 1;
     }
+
+    public void Key()
+    {
+        GameObject box = GameObject.Find("RedBox");
+        //box.SetActive(false);
+        box.SendMessage("Hit");
+    }
 }
