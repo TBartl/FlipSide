@@ -5,8 +5,7 @@ public class Portal : MonoBehaviour {
     
     void OnTriggerEnter(Collider coll)
     {
-        //if (coll.gameObject.name == "Player")
-
-            //GameManager.instance.GotoNextLevel();
+        if (coll.gameObject.name == "Player")
+            GameManager.instance.curTime = 0;
     }
 }

@@ -173,18 +173,7 @@ public class PlayerMovement : MonoBehaviour {
     {
         return new Vector3(velocity.x, 0, velocity.z);
     }
-
-    void OnTriggerEnter(Collider coll)
-    {
-        if (coll.gameObject.name == "Key")
-        {
-            coll.gameObject.SendMessage("Hit");
-        }
-        if (coll.gameObject.name == "Portal")
-        {
-            GameManager.instance.curTime = 0;
-        }
-    }
+    
 
     
 }
