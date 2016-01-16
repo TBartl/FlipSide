@@ -66,7 +66,7 @@ public class PlayerMovement : MonoBehaviour {
 
             
         playerModel.localScale = new Vector3(1, GameManager.instance.flip, 1);
-        bool isMoving = this.velocity.magnitude > .02f;
+        bool isMoving = GetGroundedVelocity().magnitude > .03f;
         animator.SetBool("Moving", isMoving);
 
         if (GameManager.instance.flip > 0)
