@@ -6,6 +6,9 @@ public class PlayerMovement : MonoBehaviour {
     PlayerCameraController cameraController;
     Rigidbody rb;
     public Transform playerModel;
+    public Animator animator;
+    public GameObject princeMesh;
+    public GameObject princessMesh;
 
     public float acceleration;
     public float friction;
@@ -61,10 +64,25 @@ public class PlayerMovement : MonoBehaviour {
             GameManager.instance.TryFlip();
         }
 
-
+            
         playerModel.localScale = new Vector3(1, GameManager.instance.flip, 1);
+        bool isMoving = this.velocity.magnitude > .02f;
+        animator.SetBool("Moving", isMoving);
 
-        
+        if (GameManager.instance.flip > 0)
+        {
+            princessMesh.SetActive(false);
+            princeMesh.SetActive(true);
+        }
+        else
+        {
+            princessMesh.SetActive(true);
+            princeMesh.SetActive(false);
+        }
+        if (isMoving)
+            playerModel.rotation = Quaternion.Euler(0,90+ Mathf.Rad2Deg * Mathf.Atan2(-velocity.z, velocity.x), 0);
+
+        Debug.Log(isMoving);
     }
 
     void HandleGroundMovement()

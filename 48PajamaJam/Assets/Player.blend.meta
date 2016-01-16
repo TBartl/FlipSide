@@ -42,6 +42,12 @@ ModelImporter:
     100068: PrincessBod
     100070: PrincessCloak
     100072: PrincessFace
+    100074: PrinceBod
+    100076: PrinceCloak
+    100078: PrinceCrown
+    100080: PrinceEyes
+    100082: PrinceHead
+    100084: PrincessCrown
     400000: //RootNode
     400002: Armature
     400004: Armature_001
@@ -79,6 +85,12 @@ ModelImporter:
     400068: PrincessBod
     400070: PrincessCloak
     400072: PrincessFace
+    400074: PrinceBod
+    400076: PrinceCloak
+    400078: PrinceCrown
+    400080: PrinceEyes
+    400082: PrinceHead
+    400084: PrincessCrown
     2300000: Circle
     2300002: Circle_001
     2300004: Cube
@@ -93,6 +105,12 @@ ModelImporter:
     2300022: PrincessBod
     2300024: PrincessCloak
     2300026: PrincessFace
+    2300028: PrinceBod
+    2300030: PrinceCloak
+    2300032: PrinceCrown
+    2300034: PrinceEyes
+    2300036: PrinceHead
+    2300038: PrincessCrown
     3300000: Circle
     3300002: Circle_001
     3300004: Cube
@@ -107,6 +125,12 @@ ModelImporter:
     3300022: PrincessBod
     3300024: PrincessCloak
     3300026: PrincessFace
+    3300028: PrinceBod
+    3300030: PrinceCloak
+    3300032: PrinceCrown
+    3300034: PrinceEyes
+    3300036: PrinceHead
+    3300038: PrincessCrown
     4300000: Circle
     4300002: Cube
     4300004: Plane
@@ -121,6 +145,26 @@ ModelImporter:
     4300022: PrincessFace
     4300024: Princessa
     4300026: PrincessCloak
+    4300028: PrinceBod
+    4300030: PrinceHead
+    4300032: PrinceCrown
+    4300034: PrinceEyes
+    4300036: PrinceCloak
+    4300038: PrincessCrown
+    7400000: Default Take
+    7400002: Idle
+    7400004: Moving
+    9500000: //RootNode
+    13700000: PrinceBod
+    13700002: PrinceCloak
+    13700004: PrinceCrown
+    13700006: PrinceEyes
+    13700008: PrinceHead
+    13700010: Princessa
+    13700012: PrincessBod
+    13700014: PrincessCloak
+    13700016: PrincessCrown
+    13700018: PrincessFace
   materials:
     importMaterials: 1
     materialName: 0
@@ -128,20 +172,236 @@ ModelImporter:
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
-    resampleRotations: 1
+    resampleRotations: 0
     optimizeGameObjects: 0
     motionNodeName: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Default Take
+      takeName: Default Take
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Bone
+        weight: 1
+      - path: Armature/Bone/Bone_001
+        weight: 1
+      - path: Armature/Bone/Bone_001/Bone_002
+        weight: 1
+      - path: Armature/Bone/Bone_001/Bone_002/Bone_003
+        weight: 1
+      - path: Armature/Bone/Bone_001/Bone_002/Bone_004
+        weight: 1
+      - path: Armature/Bone/Bone_001/Bone_002/Bone_004/Bone_005
+        weight: 1
+      - path: Armature/Bone/Bone_001/Bone_002/Bone_004/Bone_005/Bone_006
+        weight: 1
+      - path: Armature/Bone/Bone_001/Bone_002/Bone_007
+        weight: 1
+      - path: Armature/Bone/Bone_001/Bone_002/Bone_007/Bone_008
+        weight: 1
+      - path: Armature/Bone/Bone_001/Bone_002/Bone_007/Bone_008/Bone_009
+        weight: 1
+      - path: PrinceBod
+        weight: 1
+      - path: PrinceCloak
+        weight: 1
+      - path: PrinceCrown
+        weight: 1
+      - path: PrinceEyes
+        weight: 1
+      - path: PrinceHead
+        weight: 1
+      - path: Princessa
+        weight: 1
+      - path: PrincessBod
+        weight: 1
+      - path: PrincessCloak
+        weight: 1
+      - path: PrincessCrown
+        weight: 1
+      - path: PrincessFace
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Idle
+      takeName: Idle
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Bone
+        weight: 1
+      - path: Armature/Bone/Bone_001
+        weight: 1
+      - path: Armature/Bone/Bone_001/Bone_002
+        weight: 1
+      - path: Armature/Bone/Bone_001/Bone_002/Bone_003
+        weight: 1
+      - path: Armature/Bone/Bone_001/Bone_002/Bone_004
+        weight: 1
+      - path: Armature/Bone/Bone_001/Bone_002/Bone_004/Bone_005
+        weight: 1
+      - path: Armature/Bone/Bone_001/Bone_002/Bone_004/Bone_005/Bone_006
+        weight: 1
+      - path: Armature/Bone/Bone_001/Bone_002/Bone_007
+        weight: 1
+      - path: Armature/Bone/Bone_001/Bone_002/Bone_007/Bone_008
+        weight: 1
+      - path: Armature/Bone/Bone_001/Bone_002/Bone_007/Bone_008/Bone_009
+        weight: 1
+      - path: PrinceBod
+        weight: 1
+      - path: PrinceCloak
+        weight: 1
+      - path: PrinceCrown
+        weight: 1
+      - path: PrinceEyes
+        weight: 1
+      - path: PrinceHead
+        weight: 1
+      - path: Princessa
+        weight: 1
+      - path: PrincessBod
+        weight: 1
+      - path: PrincessCloak
+        weight: 1
+      - path: PrincessCrown
+        weight: 1
+      - path: PrincessFace
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Moving
+      takeName: Moving
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Bone
+        weight: 1
+      - path: Armature/Bone/Bone_001
+        weight: 1
+      - path: Armature/Bone/Bone_001/Bone_002
+        weight: 1
+      - path: Armature/Bone/Bone_001/Bone_002/Bone_003
+        weight: 1
+      - path: Armature/Bone/Bone_001/Bone_002/Bone_004
+        weight: 1
+      - path: Armature/Bone/Bone_001/Bone_002/Bone_004/Bone_005
+        weight: 1
+      - path: Armature/Bone/Bone_001/Bone_002/Bone_004/Bone_005/Bone_006
+        weight: 1
+      - path: Armature/Bone/Bone_001/Bone_002/Bone_007
+        weight: 1
+      - path: Armature/Bone/Bone_001/Bone_002/Bone_007/Bone_008
+        weight: 1
+      - path: Armature/Bone/Bone_001/Bone_002/Bone_007/Bone_008/Bone_009
+        weight: 1
+      - path: PrinceBod
+        weight: 1
+      - path: PrinceCloak
+        weight: 1
+      - path: PrinceCrown
+        weight: 1
+      - path: PrinceEyes
+        weight: 1
+      - path: PrinceHead
+        weight: 1
+      - path: Princessa
+        weight: 1
+      - path: PrincessBod
+        weight: 1
+      - path: PrincessCloak
+        weight: 1
+      - path: PrincessCrown
+        weight: 1
+      - path: PrincessFace
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -179,7 +439,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
