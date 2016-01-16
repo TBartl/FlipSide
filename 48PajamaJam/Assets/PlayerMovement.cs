@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour {
     public Animator animator;
     public GameObject princeMesh;
     public GameObject princessMesh;
+    public GameObject light;
 
     public float acceleration;
     public float friction;
@@ -73,16 +74,16 @@ public class PlayerMovement : MonoBehaviour {
         {
             princessMesh.SetActive(false);
             princeMesh.SetActive(true);
+            light.SetActive(false);
         }
         else
         {
             princessMesh.SetActive(true);
             princeMesh.SetActive(false);
+            light.SetActive(true);
         }
         if (isMoving)
             playerModel.rotation = Quaternion.Euler(0,90+ Mathf.Rad2Deg * Mathf.Atan2(-velocity.z, velocity.x), 0);
-
-        Debug.Log(isMoving);
     }
 
     void HandleGroundMovement()
@@ -180,16 +181,10 @@ public class PlayerMovement : MonoBehaviour {
         {
             coll.gameObject.SendMessage("Hit");
         }
-        if (coll.gameObject.name == "Portal")
-        {
-            NextLevel();
-        }
     }
 
     public void NextLevel()
     {
-        int i = Application.loadedLevel + 1;
-        Application.LoadLevel(i);
         //end = false;
     }
 }

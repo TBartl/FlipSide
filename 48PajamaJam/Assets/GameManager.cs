@@ -14,6 +14,11 @@ public class GameManager : MonoBehaviour {
 
     public static GameManager instance;
 
+    float autoFlip = 0;
+    public float autoFlipAcc;
+    public float endLevelThreshold;
+
+
     void Awake()
     {
         instance = this;
@@ -40,15 +45,32 @@ public class GameManager : MonoBehaviour {
                 flipState = FlipState.none;
         }
 
+        if (autoFlip > 0) // level ended
+        {
+            autoFlip += autoFlipAcc * Time.deltaTime;
+            flipPercent += autoFlip * Time.deltaTime;
+            flip = Mathf.Sin(flipPercent);
+            if (autoFlip > endLevelThreshold)
+            {
+                int i = Application.loadedLevel + 1;
+                Application.LoadLevel(i);
+            }
+                
+        } else
+        {
+            flipPercent = Mathf.Clamp(flipPercent, -1, 1);
+            flip = Mathf.Sin(flipPercent * Mathf.PI / 2f);
+        }
 
-        flipPercent = Mathf.Clamp(flipPercent, -1, 1);
-        flip = Mathf.Sin(flipPercent * Mathf.PI / 2f);
+        
 
         if (flip > 0)
             lightOverworld.SetActive(true);
         if (flip < 0)
             lightOverworld.SetActive(false);
         //flip = flipPercent;
+
+        
 
 
     }
@@ -84,6 +106,12 @@ public class GameManager : MonoBehaviour {
         flipPercent = 1;
         flip = 1;
     }
+
+    public void GotoNextLevel()
+    {
+        autoFlip += 0.01f;        
+    }
+
 
     public void Key()
     {
