@@ -116,6 +116,14 @@ public class PlayerMovement : MonoBehaviour {
         float groundSpeed = GetGroundedVelocity().magnitude;
         if (groundSpeed > maxSpeed)
             velocity = new Vector3(velocity.x / groundSpeed * maxSpeed, velocity.y, velocity.z / groundSpeed * maxSpeed);
+
+        if (GameManager.instance.IsFlipping())
+        {
+            if (GameManager.instance.flipState == FlipState.goingDown)
+                transform.position += Vector3.down * flipVelocity * Time.deltaTime;
+            else
+                transform.position += Vector3.up * flipVelocity * Time.deltaTime;
+        }
     }
 
     public void FixedUpdate()
