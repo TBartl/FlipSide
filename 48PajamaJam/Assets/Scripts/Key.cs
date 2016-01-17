@@ -33,9 +33,10 @@ public class Key : MonoBehaviour
 
     public void OnTriggerEnter(Collider c) {
         hit = true;
-        GameManager.instance.PlaySound(0);
+        
         Destroy(this.gameObject, 1);
         turnOff.SetActive(false);
         turnOn.SetActive(true);
+        GameManager.instance.PlaySound(0);
     }
 }
