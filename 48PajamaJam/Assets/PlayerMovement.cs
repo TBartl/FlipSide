@@ -48,10 +48,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            GameManager.instance.source.Play();
-        }
         rb.velocity = Vector3.zero;
         HandleGroundMovement();
 
@@ -71,24 +67,18 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.Space) && CheckAboveGround() && canFlip)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            GameManager.instance.TryFlip();
-        }
+            if (CheckAboveGround() && canFlip)
+                GameManager.instance.TryFlip();
+            else if (GameAudioManager.instance != null)
+                    GameAudioManager.instance.PlayFlipFailed();
+        } 
 
 
         playerModel.localScale = new Vector3(1, GameManager.instance.flip, 1);
         bool isMoving = GetGroundedVelocity().magnitude > .03f;
         animator.SetBool("Moving", isMoving);
-
-        if (isMoving)
-        {
-            //if (GameAudioManager.)
-        }
-        else
-        {
-
-        }
 
         if (GameManager.instance.flip > 0)
         {
@@ -166,7 +156,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 this.transform.position = respawnPoint;
                 GameManager.instance.ResetFlip();
-                GameManager.instance.PlaySound(3);
+                if (GameAudioManager.instance != null)
+                    GameAudioManager.instance.PlayRespawn();
             }
         }
         canFlip = true;

@@ -8,7 +8,8 @@ public class Portal : MonoBehaviour {
         if (coll.gameObject.name == "Player")
         {
             GameManager.instance.curTime = 0;
-            GameManager.instance.PlaySound(2);
+            if (GameAudioManager.instance != null)
+                GameAudioManager.instance.PlayPortal();
         }
             
     }
