@@ -17,6 +17,8 @@ public class GameAudioManager : MonoBehaviour
 
     public AudioSource key;
 
+    bool musicMute = false;
+
     void Awake()
     {
         instance = this;
@@ -29,8 +31,20 @@ public class GameAudioManager : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        daySource.volume = maxVolume * (GameManager.instance.Flip0Dark1Light());
-        nightSource.volume = maxVolume * (1 - GameManager.instance.Flip0Dark1Light());
+        if (!musicMute)
+        {
+            daySource.volume = maxVolume * (GameManager.instance.Flip0Dark1Light());
+            nightSource.volume = maxVolume * (1 - GameManager.instance.Flip0Dark1Light());
+        } 
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            musicMute = !musicMute;
+            daySource.volume = 0;
+            nightSource.volume = 0;
+        }
+
+        
 
     }
 
