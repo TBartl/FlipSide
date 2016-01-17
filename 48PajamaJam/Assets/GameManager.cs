@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour {
     public float flip = 1;
     public FlipState flipState = FlipState.none;
     public float flipSpeed;
-    public GameObject lightOverworld;
+    public Light lightOverworld;
 
     public float curTime = -1;
     public float LoadLevelTime = 1;
@@ -18,10 +18,16 @@ public class GameManager : MonoBehaviour {
     public bool inDialogue = false;
     public bool princeToSpeak = false;
     public bool princessToSpeak = false;
+    public Texture princeFace;
     public string princeTalk;
+    public Texture princessFace;
     public string princessTalk;
     public GameObject princeBox;
     public GameObject princessBox;
+    public GUIText princeTextBox;
+    public GUIText princessTextBox;
+    public GUITexture princeFaceTexture;
+    public GUITexture princessFaceTexture;
     public float timeSinceText = -1;
 
     public AudioSource source;
@@ -46,7 +52,11 @@ public class GameManager : MonoBehaviour {
 	void Start () {
         princeBox.SetActive(false);
         princessBox.SetActive(false);
-	}
+        princeTextBox.text = princeTalk.Replace('\\','\n');
+        princessTextBox.text = princessTalk.Replace('\\', '\n');    
+        princeFaceTexture.texture = princeFace;
+        princessFaceTexture.texture = princessFace;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -95,9 +105,9 @@ public class GameManager : MonoBehaviour {
         flip = Mathf.Sin(flipPercent * Mathf.PI / 2f);
 
         if (flip > 0)
-            lightOverworld.SetActive(true);
+            lightOverworld.enabled = true;
         if (flip < 0)
-            lightOverworld.SetActive(false);
+            lightOverworld.enabled = false;
         //flip = flipPercent;
 
         if (curTime >= 0)

@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
     public GameObject princeMesh;
     public GameObject princessMesh;
+    public GameObject playerLight;
 
     public float acceleration;
     public float friction;
@@ -27,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     SphereCollider boxCollider;
     bool canFlip = true;
     public float flipCheckRadius;
+
 
 
     Vector3 respawnPoint;
@@ -79,15 +81,26 @@ public class PlayerMovement : MonoBehaviour
         bool isMoving = GetGroundedVelocity().magnitude > .03f;
         animator.SetBool("Moving", isMoving);
 
+        if (isMoving)
+        {
+            //if (GameAudioManager.)
+        }
+        else
+        {
+
+        }
+
         if (GameManager.instance.flip > 0)
         {
             princessMesh.SetActive(false);
             princeMesh.SetActive(true);
+            playerLight.SetActive(false);
         }
         else
         {
             princessMesh.SetActive(true);
             princeMesh.SetActive(false);
+            playerLight.SetActive(true);
         }
         if (isMoving)
             playerModel.rotation = Quaternion.Euler(0, 90 + Mathf.Rad2Deg * Mathf.Atan2(-velocity.z, velocity.x), 0);
@@ -149,7 +162,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             this.transform.position += velocity;
-            if (this.transform.position.y < -15 || this.transform.position.y > 1015)
+            if (this.transform.position.y < -15 || this.transform.position.y > 1025)
             {
                 this.transform.position = respawnPoint;
                 GameManager.instance.ResetFlip();
