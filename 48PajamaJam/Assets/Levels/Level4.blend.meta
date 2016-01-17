@@ -1,47 +1,25 @@
 fileFormatVersion: 2
-guid: 8b39d1df9ad6bbc4aad42019025b91ee
-timeCreated: 1452955107
+guid: 2d1561a36a3d84547a31331c29f6a7a4
+timeCreated: 1452980711
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: Box
-    100002: Cube
-    100004: Dark
-    100006: //RootNode
-    100008: Light
-    100010: Box_001
-    100012: Shell
-    100014: Light_001
-    400000: Box
-    400002: Cube
-    400004: Dark
-    400006: //RootNode
-    400008: Light
-    400010: Box_001
-    400012: Shell
-    400014: Light_001
-    2300000: Box
-    2300002: Cube
-    2300004: Dark
-    2300006: Light
-    2300008: Box_001
-    2300010: Shell
-    2300012: Light_001
-    3300000: Box
-    3300002: Cube
-    3300004: Dark
-    3300006: Light
-    3300008: Box_001
-    3300010: Shell
-    3300012: Light_001
+    100000: //RootNode
+    100002: Dark
+    100004: Light
+    400000: //RootNode
+    400002: Dark
+    400004: Light
+    2300000: //RootNode
+    2300002: Dark
+    2300004: Light
+    3300000: //RootNode
+    3300002: Dark
+    3300004: Light
     4300000: Cube
     4300002: Light
     4300004: Dark
-    4300006: Box
-    4300008: Box_001
-    4300010: Shell
-    4300012: Light_001
     7400000: Default Take
     9500000: //RootNode
   materials:
