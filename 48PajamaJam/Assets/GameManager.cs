@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour {
     public string princessTalk;
     public GameObject princeBox;
     public GameObject princessBox;
+    public float timeSinceText = -1;
 
 
     public static GameManager instance;
@@ -40,24 +41,29 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+        if (timeSinceText >= 0)
+            timeSinceText += Time.deltaTime;
         if(flip > 0 && princeToSpeak)
         {
             inDialogue = true;
             princeBox.SetActive(true);
             princeToSpeak = false;
+            timeSinceText = 0;
         }
         if(flip < 0 && princessToSpeak)
         {
             inDialogue = true;
             princessBox.SetActive(true);
             princessToSpeak = false;
+            timeSinceText = 0;
         }
 
-        if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0))
+        if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0) || timeSinceText >= 5)
         {
-            //princeBox.SetActive(false);
-            //princessBox.SetActive(false);
+            princeBox.SetActive(false);
+            princessBox.SetActive(false);
             inDialogue = false;
+            timeSinceText = -1;
         }
 
         if (flipState == FlipState.goingUp)
