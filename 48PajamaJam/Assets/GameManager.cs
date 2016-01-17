@@ -55,8 +55,8 @@ public class GameManager : MonoBehaviour {
 
         if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0))
         {
-            princeBox.SetActive(false);
-            princessBox.SetActive(false);
+            //princeBox.SetActive(false);
+            //princessBox.SetActive(false);
             inDialogue = false;
         }
 
