@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
     public GameObject princeMesh;
     public GameObject princessMesh;
+    public GameObject playerLight;
 
     public float acceleration;
     public float friction;
@@ -79,11 +80,13 @@ public class PlayerMovement : MonoBehaviour
         {
             princessMesh.SetActive(false);
             princeMesh.SetActive(true);
+            playerLight.SetActive(false);
         }
         else
         {
             princessMesh.SetActive(true);
             princeMesh.SetActive(false);
+            playerLight.SetActive(true);
         }
         if (isMoving)
             playerModel.rotation = Quaternion.Euler(0, 90 + Mathf.Rad2Deg * Mathf.Atan2(-velocity.z, velocity.x), 0);
