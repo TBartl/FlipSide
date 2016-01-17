@@ -8,10 +8,14 @@ public class GameAudioManager : MonoBehaviour
     public float maxVolume;
     public AudioSource daySource;
     public AudioSource nightSource;
-    public AudioSource footStep;
-    public AudioSource endLevel;
-    public AudioSource keyPickup;
+
+    public AudioSource respawn;
+    public AudioSource portal;
+    
     public AudioSource flip;
+    public AudioSource flipFailed;
+
+    public AudioSource key;
 
     void Awake()
     {
@@ -30,14 +34,14 @@ public class GameAudioManager : MonoBehaviour
 
     }
 
-    public void PlayFootStep()
+    public void PlayRespawn()
     {
-        footStep.Play();
+        respawn.Play();
     }
 
-    public void PlayKey()
+    public void PlayPortal()
     {
-        keyPickup.Play();
+        portal.Play();
     }
 
     public void PlayFlip()
@@ -45,9 +49,17 @@ public class GameAudioManager : MonoBehaviour
         flip.Play();
     }
 
-    public void PlayPortal()
+    public void PlayFlipFailed()
     {
-        endLevel.Play();
+        flipFailed.Play();
     }
 
+    public void PlayKey()
+    {
+        key.Play();
+    }
+
+    
+
+    
 }

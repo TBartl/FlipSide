@@ -131,7 +131,9 @@ public class GameManager : MonoBehaviour {
             {
                 flipState = FlipState.goingDown;
             }
-            PlaySound(1);
+
+            if (GameAudioManager.instance != null)
+                GameAudioManager.instance.PlayFlip();
             
         }
     }
@@ -157,34 +159,5 @@ public class GameManager : MonoBehaviour {
         int i = Application.loadedLevel + 1;
         Application.LoadLevel(i);
         //end = false;
-    }
-
-    public void Key()
-    {
-
-    }
-
-    public void PlaySound(int i)
-    {
-        //print("WHY" + i);
-        switch(i)
-        {
-            case 0:
-                GameAudioManager.instance.PlayKey();
-                print("WHY" + i);
-                break;
-            case 1:
-                GameAudioManager.instance.PlayFlip();
-                print("WHY" + i);
-                break;
-            case 2:
-                GameAudioManager.instance.PlayPortal();
-                print("WHY" + i);
-                break;
-            case 3:
-                GameAudioManager.instance.PlayFootStep();
-                print("WHY" + i);
-                break;
-        }
     }
 }
