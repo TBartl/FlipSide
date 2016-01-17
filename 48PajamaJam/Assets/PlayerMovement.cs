@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     public float flipCheckRadius;
 
 
+
     Vector3 respawnPoint;
 
 
@@ -75,6 +76,15 @@ public class PlayerMovement : MonoBehaviour
         playerModel.localScale = new Vector3(1, GameManager.instance.flip, 1);
         bool isMoving = GetGroundedVelocity().magnitude > .03f;
         animator.SetBool("Moving", isMoving);
+
+        if (isMoving)
+        {
+            //if (GameAudioManager.)
+        }
+        else
+        {
+
+        }
 
         if (GameManager.instance.flip > 0)
         {

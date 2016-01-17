@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour {
         princeBox.SetActive(false);
         princessBox.SetActive(false);
         princeTextBox.text = princeTalk.Replace('\\','\n');
-        princessTextBox.text = princessTalk.Replace('\\', '\n');
+        princessTextBox.text = princessTalk.Replace('\\', '\n');    
         princeFaceTexture.texture = princeFace;
         princessFaceTexture.texture = princessFace;
     }
