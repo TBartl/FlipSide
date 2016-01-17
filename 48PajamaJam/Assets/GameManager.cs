@@ -61,7 +61,10 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         
-
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            Application.LoadLevel(Application.loadedLevel);
+        }
         if (timeSinceText >= 0)
             timeSinceText += Time.deltaTime;
         if(flip > 0 && princeToSpeak)
