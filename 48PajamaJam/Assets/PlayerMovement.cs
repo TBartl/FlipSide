@@ -21,9 +21,11 @@ public class PlayerMovement : MonoBehaviour {
     public float gravity;
     public float maxFallSpeed;
     public float flipVelocity;
+    public float dotProductForGrounded;
 
     SphereCollider boxCollider;
     bool canFlip = true;
+    public float flipCheckRadius;
 
 
     Vector3 respawnPoint;
@@ -44,7 +46,7 @@ public class PlayerMovement : MonoBehaviour {
         rb.velocity = Vector3.zero;
         HandleGroundMovement();    
 
-        if (!CheckAboveGround())
+        //if (!CheckAboveGround())
             velocity += GameManager.instance.flip * Vector3.down * gravity * Time.deltaTime;
         
         velocity = new Vector3(velocity.x, Mathf.Clamp(velocity.y, -maxFallSpeed, maxFallSpeed), velocity.z);
@@ -151,6 +153,16 @@ public class PlayerMovement : MonoBehaviour {
 
     bool CheckAboveGround()
     {
+        for (int xIndex = -1; xIndex <= 1; xIndex += 2)
+        {
+            for (int zIndex = -1; zIndex <= 1; zIndex += 2)
+            {
+                if (!Physics.Raycast(transform.position + GameManager.instance.flip * Vector3.up * groundedCheckAbove + new Vector3(xIndex, 0, zIndex) * flipCheckRadius, Vector3.down * GameManager.instance.flip, groundedCheckDown, raycastMask))
+                    return false;
+            }
+        }
+
+
         if (Physics.Raycast(transform.position+GameManager.instance.flip * Vector3.up * groundedCheckAbove, Vector3.down * GameManager.instance.flip, groundedCheckDown, raycastMask))
         {
             return true;
@@ -182,7 +194,25 @@ public class PlayerMovement : MonoBehaviour {
             canFlip = false;
         }
     }
-    
 
-    
+    void OnCollisionStay(Collision c)
+    {
+        if (c.gameObject.layer == 8)
+        {
+            foreach (ContactPoint contact in c.contacts)
+            {
+                //float dotProduct = Vector3.Dot((contact.point - transform.position).normalized, Vector3.down);
+                float dotProduct = Vector3.Dot(transform.TransformDirection(Vector3.up), contact.normal);
+                if (Mathf.Abs(dotProduct) >= dotProductForGrounded)
+                {
+                    //Debug.DrawLine(contact.point, transform.position);
+                    this.velocity.y = 0;
+                    
+                }
+            }
+        }
+    }
+
+
+
 }
