@@ -72,6 +72,12 @@ public class GameAudioManager : MonoBehaviour
     {
         key.Play();
     }
+    void OnLevelWasLoaded(int level)
+    {
+        if (level == 15)
+            Destroy(this.gameObject);
+
+    }
 
     
 
