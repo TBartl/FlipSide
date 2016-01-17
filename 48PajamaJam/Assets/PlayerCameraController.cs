@@ -46,6 +46,9 @@ public class PlayerCameraController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
 		// Create a pivot point that will be above the player's head.
 		pivotPoint.localPosition = new Vector3 (0, startHeightAbovePlayer, 0);
 

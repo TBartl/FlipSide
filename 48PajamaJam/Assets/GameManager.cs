@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour {
     public float flip = 1;
     public FlipState flipState = FlipState.none;
     public float flipSpeed;
-    public GameObject lightOverworld;
+    public Light lightOverworld;
 
     public float curTime = -1;
     public float LoadLevelTime = 1;
@@ -84,9 +84,9 @@ public class GameManager : MonoBehaviour {
         flip = Mathf.Sin(flipPercent * Mathf.PI / 2f);
 
         if (flip > 0)
-            lightOverworld.SetActive(true);
+            lightOverworld.enabled = true;
         if (flip < 0)
-            lightOverworld.SetActive(false);
+            lightOverworld.enabled = false;
         //flip = flipPercent;
 
         if (curTime >= 0)
