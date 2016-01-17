@@ -15,6 +15,15 @@ public class GameManager : MonoBehaviour {
     public float curTime = -1;
     public float LoadLevelTime = 1;
 
+    public bool inDialogue = false;
+    public bool princeToSpeak = false;
+    public bool princessToSpeak = false;
+    public string princeTalk;
+    public string princessTalk;
+    public GameObject princeBox;
+    public GameObject princessBox;
+
+
     public static GameManager instance;
 
     void Awake()
@@ -24,11 +33,32 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+        princeBox.SetActive(false);
+        princessBox.SetActive(false);
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
+        if(flip > 0 && princeToSpeak)
+        {
+            inDialogue = true;
+            princeBox.SetActive(true);
+            princeToSpeak = false;
+        }
+        if(flip < 0 && princessToSpeak)
+        {
+            inDialogue = true;
+            princessBox.SetActive(true);
+            princessToSpeak = false;
+        }
+
+        if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            princeBox.SetActive(false);
+            princessBox.SetActive(false);
+            inDialogue = false;
+        }
 
         if (flipState == FlipState.goingUp)
         {
@@ -98,5 +128,10 @@ public class GameManager : MonoBehaviour {
         int i = Application.loadedLevel + 1;
         Application.LoadLevel(i);
         //end = false;
+    }
+
+    public void Key()
+    {
+
     }
 }
