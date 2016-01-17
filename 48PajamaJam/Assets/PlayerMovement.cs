@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     public float flipCheckRadius;
 
 
+
     Vector3 respawnPoint;
 
 
@@ -66,10 +67,13 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.Space) && CheckAboveGround() && canFlip)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            GameManager.instance.TryFlip();
-        }
+            if (CheckAboveGround() && canFlip)
+                GameManager.instance.TryFlip();
+            else if (GameAudioManager.instance != null)
+                    GameAudioManager.instance.PlayFlipFailed();
+        } 
 
 
         playerModel.localScale = new Vector3(1, GameManager.instance.flip, 1);
@@ -152,6 +156,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 this.transform.position = respawnPoint;
                 GameManager.instance.ResetFlip();
+                if (GameAudioManager.instance != null)
+                    GameAudioManager.instance.PlayRespawn();
             }
         }
         canFlip = true;

@@ -30,12 +30,22 @@ public class GameManager : MonoBehaviour {
     public GUITexture princessFaceTexture;
     public float timeSinceText = -1;
 
+    public AudioSource source;
+    public GameObject p;
+    public AudioClip key;
+    public AudioClip flipEffect;
+    public AudioClip portal;
+    public AudioClip drop;
+
+
+
 
     public static GameManager instance;
 
     void Awake()
     {
         instance = this;
+        source = GetComponent<AudioSource>();
     }
 
 	// Use this for initialization
@@ -43,14 +53,18 @@ public class GameManager : MonoBehaviour {
         princeBox.SetActive(false);
         princessBox.SetActive(false);
         princeTextBox.text = princeTalk.Replace('\\','\n');
-        princessTextBox.text = princessTalk.Replace('\\', '\n');
+        princessTextBox.text = princessTalk.Replace('\\', '\n');    
         princeFaceTexture.texture = princeFace;
         princessFaceTexture.texture = princessFace;
     }
 	
 	// Update is called once per frame
 	void Update () {
-
+        
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            Application.LoadLevel(Application.loadedLevel);
+        }
         if (timeSinceText >= 0)
             timeSinceText += Time.deltaTime;
         if(flip > 0 && princeToSpeak)
@@ -120,6 +134,10 @@ public class GameManager : MonoBehaviour {
             {
                 flipState = FlipState.goingDown;
             }
+
+            if (GameAudioManager.instance != null)
+                GameAudioManager.instance.PlayFlip();
+            
         }
     }
 
@@ -144,10 +162,5 @@ public class GameManager : MonoBehaviour {
         int i = Application.loadedLevel + 1;
         Application.LoadLevel(i);
         //end = false;
-    }
-
-    public void Key()
-    {
-
     }
 }
