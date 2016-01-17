@@ -1,42 +1,92 @@
 fileFormatVersion: 2
-guid: 3d8352d2ad0679b459b79d9f54b41cb1
-timeCreated: 1452992262
+guid: aef91b489a1eb0743a824a098de5b8e5
+timeCreated: 1453041883
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: Dark_Base
-    100002: Dark_On
-    100004: Dark_On_Plane
-    100006: //RootNode
-    100008: Light_Base
-    100010: Light_Off
-    100012: Dark_On_Last
-    400000: Dark_Base
-    400002: Dark_On
-    400004: Dark_On_Plane
-    400006: //RootNode
-    400008: Light_Base
-    400010: Light_Off
-    400012: Dark_On_Last
-    2300000: Dark_Base
-    2300002: Dark_On
-    2300004: Dark_On_Plane
-    2300006: Light_Base
-    2300008: Light_Off
-    2300010: Dark_On_Last
-    3300000: Dark_Base
-    3300002: Dark_On
-    3300004: Dark_On_Plane
-    3300006: Light_Base
-    3300008: Light_Off
-    3300010: Dark_On_Last
-    4300000: Light_Off
-    4300002: Light_Base
-    4300004: Dark_On
-    4300006: Dark_Base
-    4300008: Dark_On_Plane
-    4300010: Dark_On_Last
+    100000: Cube
+    100002: Cube_001
+    100004: //RootNode
+    100006: Dark_Base
+    100008: Dark_Off_1
+    100010: Dark_On_1
+    100012: Light_Base
+    100014: Light_Off_1
+    100016: Light_Off_2
+    100018: Light_Off_3
+    100020: Light_On_1
+    100022: Light_On_2
+    100024: Dark_Off_2
+    100026: Dark_On_2
+    100028: Dark_On_3
+    100030: Dark_Off_3
+    100032: Light_On_3
+    400000: Cube
+    400002: Cube_001
+    400004: //RootNode
+    400006: Dark_Base
+    400008: Dark_Off_1
+    400010: Dark_On_1
+    400012: Light_Base
+    400014: Light_Off_1
+    400016: Light_Off_2
+    400018: Light_Off_3
+    400020: Light_On_1
+    400022: Light_On_2
+    400024: Dark_Off_2
+    400026: Dark_On_2
+    400028: Dark_On_3
+    400030: Dark_Off_3
+    400032: Light_On_3
+    2300000: Cube
+    2300002: Cube_001
+    2300004: Dark_Base
+    2300006: Dark_Off_1
+    2300008: Dark_On_1
+    2300010: Light_Base
+    2300012: Light_Off_1
+    2300014: Light_Off_2
+    2300016: Light_Off_3
+    2300018: Light_On_1
+    2300020: Light_On_2
+    2300022: Dark_Off_2
+    2300024: Dark_On_2
+    2300026: Dark_On_3
+    2300028: Dark_Off_3
+    2300030: Light_On_3
+    3300000: Cube
+    3300002: Cube_001
+    3300004: Dark_Base
+    3300006: Dark_Off_1
+    3300008: Dark_On_1
+    3300010: Light_Base
+    3300012: Light_Off_1
+    3300014: Light_Off_2
+    3300016: Light_Off_3
+    3300018: Light_On_1
+    3300020: Light_On_2
+    3300022: Dark_Off_2
+    3300024: Dark_On_2
+    3300026: Dark_On_3
+    3300028: Dark_Off_3
+    3300030: Light_On_3
+    4300000: Cube_001
+    4300002: Cube
+    4300004: Dark_Off_1
+    4300006: Dark_On_1
+    4300008: Light_Off_3
+    4300010: Light_On_2
+    4300012: Light_On_1
+    4300014: Light_Off_1
+    4300016: Light_Base
+    4300018: Dark_Base
+    4300020: Light_Off_2
+    4300022: Dark_Off_2
+    4300024: Dark_On_2
+    4300026: Dark_On_3
+    4300028: Dark_Off_3
+    4300030: Light_On_3
     7400000: Default Take
     9500000: //RootNode
   materials:
