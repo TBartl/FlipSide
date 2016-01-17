@@ -3,7 +3,7 @@ using System.Collections;
 
 public class GameAudioManager : MonoBehaviour
 {
-    public GameAudioManager instance;
+    public static GameAudioManager instance;
 
     public float maxVolume;
     public AudioSource daySource;
@@ -13,7 +13,10 @@ public class GameAudioManager : MonoBehaviour
     public AudioSource keyPickup;
     public AudioSource flip;
 
-
+    void Awake()
+    {
+        instance = this;
+    }
     // Use this for initialization
     void Start () {
         DontDestroyOnLoad(this.gameObject);
@@ -26,4 +29,25 @@ public class GameAudioManager : MonoBehaviour
         nightSource.volume = maxVolume * (1 - GameManager.instance.Flip0Dark1Light());
 
     }
+
+    public void PlayFootStep()
+    {
+        footStep.Play();
+    }
+
+    public void PlayKey()
+    {
+        keyPickup.Play();
+    }
+
+    public void PlayFlip()
+    {
+        flip.Play();
+    }
+
+    public void PlayPortal()
+    {
+        endLevel.Play();
+    }
+
 }

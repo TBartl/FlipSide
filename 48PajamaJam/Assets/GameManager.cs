@@ -170,19 +170,19 @@ public class GameManager : MonoBehaviour {
         switch(i)
         {
             case 0:
-                source.PlayOneShot(key);
+                GameAudioManager.instance.PlayKey();
                 print("WHY" + i);
                 break;
             case 1:
-                source.PlayOneShot(flipEffect);
+                GameAudioManager.instance.PlayFlip();
                 print("WHY" + i);
                 break;
             case 2:
-                source.PlayOneShot(portal);
+                GameAudioManager.instance.PlayPortal();
                 print("WHY" + i);
                 break;
             case 3:
-                source.PlayOneShot(drop);
+                GameAudioManager.instance.PlayFootStep();
                 print("WHY" + i);
                 break;
         }
