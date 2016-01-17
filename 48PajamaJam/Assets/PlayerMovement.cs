@@ -42,47 +42,54 @@ public class PlayerMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        rb.velocity = Vector3.zero;
-        HandleGroundMovement();    
-
-        if (!CheckAboveGround())
-            velocity += GameManager.instance.flip * Vector3.down * gravity * Time.deltaTime;
-        
-        velocity = new Vector3(velocity.x, Mathf.Clamp(velocity.y, -maxFallSpeed, maxFallSpeed), velocity.z);
-        
-        if (GameManager.instance.flip > 0 && this.transform.position.y > 500)
+        if (!GameManager.instance.inDialogue)
         {
-            this.transform.position += Vector3.down * 1000f;
-        }
+            rb.velocity = Vector3.zero;
+            HandleGroundMovement();
 
-        if (GameManager.instance.flip < 0 && this.transform.position.y < 500)
-        {
-            this.transform.position += Vector3.up * 1000f;
-        }
-        
+            if (!CheckAboveGround())
+                velocity += GameManager.instance.flip * Vector3.down * gravity * Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.Space) && CheckAboveGround())
-        {
-            GameManager.instance.TryFlip();
-        }
+            velocity = new Vector3(velocity.x, Mathf.Clamp(velocity.y, -maxFallSpeed, maxFallSpeed), velocity.z);
 
-            
-        playerModel.localScale = new Vector3(1, GameManager.instance.flip, 1);
-        bool isMoving = GetGroundedVelocity().magnitude > .03f;
-        animator.SetBool("Moving", isMoving);
+            if (GameManager.instance.flip > 0 && this.transform.position.y > 500)
+            {
+                this.transform.position += Vector3.down * 1000f;
+            }
 
-        if (GameManager.instance.flip > 0)
-        {
-            princessMesh.SetActive(false);
-            princeMesh.SetActive(true);
+            if (GameManager.instance.flip < 0 && this.transform.position.y < 500)
+            {
+                this.transform.position += Vector3.up * 1000f;
+            }
+
+
+            if (Input.GetKeyDown(KeyCode.Space) && CheckAboveGround())
+            {
+                GameManager.instance.TryFlip();
+            }
+
+
+            playerModel.localScale = new Vector3(1, GameManager.instance.flip, 1);
+            bool isMoving = GetGroundedVelocity().magnitude > .03f;
+            animator.SetBool("Moving", isMoving);
+
+            if (GameManager.instance.flip > 0)
+            {
+                princessMesh.SetActive(false);
+                princeMesh.SetActive(true);
+            }
+            else
+            {
+                princessMesh.SetActive(true);
+                princeMesh.SetActive(false);
+            }
+            if (isMoving)
+                playerModel.rotation = Quaternion.Euler(0, 90 + Mathf.Rad2Deg * Mathf.Atan2(-velocity.z, velocity.x), 0);
         }
         else
         {
-            princessMesh.SetActive(true);
-            princeMesh.SetActive(false);
+            playerModel.localScale = new Vector3(1, GameManager.instance.flip, 1);
         }
-        if (isMoving)
-            playerModel.rotation = Quaternion.Euler(0,90+ Mathf.Rad2Deg * Mathf.Atan2(-velocity.z, velocity.x), 0);
 
         
     }
