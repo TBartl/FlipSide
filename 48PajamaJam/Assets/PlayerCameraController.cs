@@ -39,12 +39,13 @@ public class PlayerCameraController : MonoBehaviour {
 	public float rotateXAxis;
 	public float rotateZAxis; // Increase to make quicker adjustments
 	Vector3 rotateChange;
-	Vector3 rotate;
-	Vector3 rotation = Vector3.zero;
+	Vector3 rotation = new Vector3(35, 0, 0);
+    public float rotationFlipSpeed;
+    
 
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		// Create a pivot point that will be above the player's head.
 		pivotPoint.localPosition = new Vector3 (0, startHeightAbovePlayer, 0);
 
@@ -63,7 +64,7 @@ public class PlayerCameraController : MonoBehaviour {
 		// MISC
 		raycastMask = 1 << 8;
 		Cursor.visible = false; //TODO
-		//movementController = GetComponent<PlayerMovementController> (); TODO
+                                //movementController = GetComponent<PlayerMovementController> (); TODO
 	}
 
 	void Update() {
@@ -74,6 +75,14 @@ public class PlayerCameraController : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.N)) {
 			rotateSensitivity -= 50;
 		}
+
+        if (GameManager.instance.IsFlipping())
+        {
+            if (GameManager.instance.flipState == FlipState.goingDown)
+                rotation += Vector3.left * rotationFlipSpeed * Time.deltaTime;
+            if (GameManager.instance.flipState == FlipState.goingUp)
+                rotation += Vector3.right * rotationFlipSpeed * Time.deltaTime;
+        }
 
 	}
 	

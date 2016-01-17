@@ -6,10 +6,30 @@ ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Dark
+    100004: Dark_Red
+    100006: Light
+    100008: Light_Red
     400000: //RootNode
+    400002: Dark
+    400004: Dark_Red
+    400006: Light
+    400008: Light_Red
     2300000: //RootNode
+    2300002: Dark
+    2300004: Dark_Red
+    2300006: Light
+    2300008: Light_Red
     3300000: //RootNode
+    3300002: Dark
+    3300004: Dark_Red
+    3300006: Light
+    3300008: Light_Red
     4300000: Cube
+    4300002: Dark_Red
+    4300004: Light_Red
+    4300006: Light
+    4300008: Dark
     7400000: Default Take
     9500000: //RootNode
   materials:
