@@ -37,6 +37,7 @@ public class Key : MonoBehaviour
         Destroy(this.gameObject, 1);
         turnOff.SetActive(false);
         turnOn.SetActive(true);
-        GameAudioManager.instance.PlayKey();
+        if (GameAudioManager.instance != null)
+            GameAudioManager.instance.PlayKey();
     }
 }
