@@ -18,10 +18,16 @@ public class GameManager : MonoBehaviour {
     public bool inDialogue = false;
     public bool princeToSpeak = false;
     public bool princessToSpeak = false;
+    public Texture princeFace;
     public string princeTalk;
+    public Texture princessFace;
     public string princessTalk;
     public GameObject princeBox;
     public GameObject princessBox;
+    public GUIText princeTextBox;
+    public GUIText princessTextBox;
+    public GUITexture princeFaceTexture;
+    public GUITexture princessFaceTexture;
     public float timeSinceText = -1;
 
 
@@ -36,7 +42,11 @@ public class GameManager : MonoBehaviour {
 	void Start () {
         princeBox.SetActive(false);
         princessBox.SetActive(false);
-	}
+        princeTextBox.text = princeTalk;
+        princessTextBox.text = princessTalk;
+        princeFaceTexture.texture = princeFace;
+        princessFaceTexture.texture = princessFace;
+    }
 	
 	// Update is called once per frame
 	void Update () {

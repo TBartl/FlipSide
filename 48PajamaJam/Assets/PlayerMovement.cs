@@ -148,7 +148,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             this.transform.position += velocity;
-            if (this.transform.position.y < -15 || this.transform.position.y > 1015)
+            if (this.transform.position.y < -15 || this.transform.position.y > 1025)
             {
                 this.transform.position = respawnPoint;
                 GameManager.instance.ResetFlip();
