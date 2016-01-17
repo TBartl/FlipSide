@@ -24,12 +24,22 @@ public class GameManager : MonoBehaviour {
     public GameObject princessBox;
     public float timeSinceText = -1;
 
+    public AudioSource source;
+    public GameObject p;
+    public AudioClip key;
+    public AudioClip flipEffect;
+    public AudioClip portal;
+    public AudioClip drop;
+
+
+
 
     public static GameManager instance;
 
     void Awake()
     {
         instance = this;
+        source = GetComponent<AudioSource>();
     }
 
 	// Use this for initialization
@@ -40,6 +50,7 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        
 
         if (timeSinceText >= 0)
             timeSinceText += Time.deltaTime;
@@ -110,6 +121,8 @@ public class GameManager : MonoBehaviour {
             {
                 flipState = FlipState.goingDown;
             }
+            PlaySound(1);
+            
         }
     }
 
@@ -139,5 +152,29 @@ public class GameManager : MonoBehaviour {
     public void Key()
     {
 
+    }
+
+    public void PlaySound(int i)
+    {
+        //print("WHY" + i);
+        switch(i)
+        {
+            case 0:
+                source.PlayOneShot(key);
+                print("WHY" + i);
+                break;
+            case 1:
+                source.PlayOneShot(flipEffect);
+                print("WHY" + i);
+                break;
+            case 2:
+                source.PlayOneShot(portal);
+                print("WHY" + i);
+                break;
+            case 3:
+                source.PlayOneShot(drop);
+                print("WHY" + i);
+                break;
+        }
     }
 }

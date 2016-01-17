@@ -46,6 +46,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            GameManager.instance.source.Play();
+        }
         rb.velocity = Vector3.zero;
         HandleGroundMovement();
 
@@ -149,6 +153,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 this.transform.position = respawnPoint;
                 GameManager.instance.ResetFlip();
+                GameManager.instance.PlaySound(3);
             }
         }
         canFlip = true;
