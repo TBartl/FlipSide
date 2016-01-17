@@ -22,9 +22,8 @@ public class PlayerMovement : MonoBehaviour {
     public float maxFallSpeed;
     public float flipVelocity;
 
-    BoxCollider boxCollider;
-
-   
+    SphereCollider boxCollider;
+    bool canFlip = true;
 
 
     Vector3 respawnPoint;
@@ -34,7 +33,7 @@ public class PlayerMovement : MonoBehaviour {
     void Start () {
         respawnPoint = this.transform.position;
         rb = this.gameObject.GetComponent<Rigidbody>();
-        boxCollider = this.gameObject.GetComponent<BoxCollider>();
+        boxCollider = this.gameObject.GetComponent<SphereCollider>();
         cameraController = this.gameObject.GetComponent<PlayerCameraController>();
 
 	
@@ -61,7 +60,7 @@ public class PlayerMovement : MonoBehaviour {
         }
         
 
-        if (Input.GetKeyDown(KeyCode.Space) && CheckAboveGround())
+        if (Input.GetKeyDown(KeyCode.Space) && CheckAboveGround() && canFlip)
         {
             GameManager.instance.TryFlip();
         }
@@ -130,9 +129,9 @@ public class PlayerMovement : MonoBehaviour {
 
     public void FixedUpdate()
     {
+        boxCollider.center = new Vector3(0, .5f * GameManager.instance.flip, 0);
         if (GameManager.instance.IsFlipping())
         {
-            boxCollider.center = new Vector3(0,.5f * GameManager.instance.flip,0);
             if (GameManager.instance.flipState == FlipState.goingDown)
                 transform.position += Vector3.down * flipVelocity * Time.deltaTime;
             else
@@ -144,8 +143,10 @@ public class PlayerMovement : MonoBehaviour {
             if (this.transform.position.y < -15 || this.transform.position.y > 1015)
             {
                 this.transform.position = respawnPoint;
+                GameManager.instance.ResetFlip();
             }
         }
+        canFlip = true;
     }
 
     bool CheckAboveGround()
@@ -172,6 +173,14 @@ public class PlayerMovement : MonoBehaviour {
     public Vector3 GetGroundedVelocity()
     {
         return new Vector3(velocity.x, 0, velocity.z);
+    }
+
+    public void OnTriggerStay(Collider c)
+    {
+        if (c.tag == "Red")
+        {
+            canFlip = false;
+        }
     }
     
 
