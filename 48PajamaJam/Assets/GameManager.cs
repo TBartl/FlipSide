@@ -65,6 +65,12 @@ public class GameManager : MonoBehaviour {
         {
             Application.LoadLevel(Application.loadedLevel);
         }
+        if (Input.GetKeyDown(KeyCode.Alpha0)) {
+            Application.LoadLevel(0);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha9)) {
+            Application.LoadLevel(Application.loadedLevel + 1);
+        }
         if (timeSinceText >= 0)
             timeSinceText += Time.deltaTime;
         if(flip > 0 && princeToSpeak)
