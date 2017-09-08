@@ -25,3 +25,6 @@ sysinfo.txt
 *.DS_Store
 
 /C*
+
+/*-Builds/*
+!/*-Builds/*.zip
