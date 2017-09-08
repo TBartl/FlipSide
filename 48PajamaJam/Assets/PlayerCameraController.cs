@@ -100,7 +100,7 @@ public class PlayerCameraController : MonoBehaviour {
 	void GetInput()
 	{
 		zoomChange += Input.GetAxis ("Mouse ScrollWheel")*zoomSensitivity*Time.deltaTime;
-		rotateChange += new Vector3(-Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0)*rotateSensitivity*Time.deltaTime;
+		rotateChange += new Vector3(-Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0)*rotateSensitivity;
 	}
 
 	void SmoothlyMove()
