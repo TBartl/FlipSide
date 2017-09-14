@@ -29,11 +29,8 @@ public class PlayerMovement : MonoBehaviour
     bool canFlip = true;
     public float flipCheckRadius;
 
-
-
     Vector3 respawnPoint;
-
-
+    
     // Use this for initialization
     void Start()
     {
@@ -67,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Jump"))
         {
             if (CheckAboveGround() && canFlip)
                 GameManager.instance.TryFlip();
@@ -77,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
 
 
         playerModel.localScale = new Vector3(1, GameManager.instance.flip, 1);
-        bool isMoving = GetGroundedVelocity().magnitude > .03f;
+        bool isMoving = GetGroundedVelocity().magnitude > .01f;
         animator.SetBool("Moving", isMoving);
 
         if (GameManager.instance.flip > 0)
@@ -185,7 +182,11 @@ public class PlayerMovement : MonoBehaviour
 
     Vector3 GetInputDirection()
     {
-        return new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
+        Vector3 toReturn = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        float mag = toReturn.magnitude;
+        if (mag > 1)
+            toReturn /= mag;
+        return toReturn;
     }
 
     public Vector3 InCameraDirection(Vector3 inVec)

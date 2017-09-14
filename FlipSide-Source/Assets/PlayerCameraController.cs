@@ -34,8 +34,9 @@ public class PlayerCameraController : MonoBehaviour {
 	float zoomChange;
 	float zoom;
 
-	public float rotateSensitivity;
-	public AnimationCurve rotateVsRemainingRotate;
+    public float rotateSensitivity;
+    public float rotateSensitivityControllerModifier = 5;
+    public AnimationCurve rotateVsRemainingRotate;
 	public float rotateXAxis;
 	public float rotateZAxis; // Increase to make quicker adjustments
 	Vector3 rotateChange;
@@ -100,8 +101,9 @@ public class PlayerCameraController : MonoBehaviour {
 	void GetInput()
 	{
 		zoomChange += Input.GetAxis ("Mouse ScrollWheel")*zoomSensitivity*Time.deltaTime;
-		rotateChange += new Vector3(-Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0)*rotateSensitivity;
-	}
+        rotateChange += new Vector3(-Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0) * rotateSensitivity;
+        rotateChange += new Vector3(Input.GetAxis("Right Y"), Input.GetAxis("Right X"), 0) * rotateSensitivity * rotateSensitivityControllerModifier;
+    }
 
 	void SmoothlyMove()
 	{
