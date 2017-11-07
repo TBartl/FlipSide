@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour {
             timeSinceText = 0;
         }
 
-        if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0) || timeSinceText >= 5)
+        if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0) || Input.GetButtonDown("Jump") || timeSinceText >= 5)
         {
             princeBox.SetActive(false);
             princessBox.SetActive(false);
